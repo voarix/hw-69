@@ -1,17 +1,15 @@
 import { useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../app/hooks.ts";
 import { fetchTvShows } from "./tvShowsThunks.ts";
-import { selectFetchShowsLoading, selectShows } from "./tvShowsSlice.ts";
+import { selectShows } from "./tvShowsSlice.ts";
 import { Autocomplete, TextField } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 
 const TvShows = () => {
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState("");
   const dispatch = useAppDispatch();
-  const fetchLoading = useAppSelector(selectFetchShowsLoading);
   const shows = useAppSelector(selectShows);
   const navigate = useNavigate();
-
 
   const onChangeSearch = (value: string) => {
     setSearch(value);
@@ -42,7 +40,7 @@ const TvShows = () => {
           <TextField {...params} label="Search TV shows" />
         )}
       />
-      {fetchLoading && <div>Loading</div>}
+      <Outlet />
     </>
   );
 };

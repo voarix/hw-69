@@ -1,9 +1,9 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { axiosApiBase } from "../axiosApi.ts";
-import { IShow, IShowApi } from "../types";
+import { axiosApiBase } from "../../axiosApi.ts";
+import { IShow, IShowApi } from "../../types";
 
 export const fetchTvShows = createAsyncThunk<IShow[], string>(
-  'tvShows/fetchTvShows',
+  "tvShows/fetchTvShows",
   async (value) => {
     const response = await axiosApiBase(`${value}`);
     return response.data.map((item: IShowApi) => {
@@ -14,5 +14,5 @@ export const fetchTvShows = createAsyncThunk<IShow[], string>(
         image: item.show.image,
       };
     });
-  }
+  },
 );
