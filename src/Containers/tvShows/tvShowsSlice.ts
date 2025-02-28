@@ -1,7 +1,7 @@
-import { IShow } from "../types";
+import { IShow } from "../../types";
 import { fetchTvShows } from "./tvShowsThunks.ts";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { RootState } from "../app/store.ts";
+import { RootState } from "../../app/store.ts";
 
 interface TvShowsSlice{
   items: IShow[];
