@@ -1,7 +1,10 @@
 import {configureStore} from "@reduxjs/toolkit";
+import { tvShowsReducer } from "../tvShows/tvShowsSlice.ts";
 
 export const store = configureStore({
-    reducer: {}
+    reducer: {
+      tvShows: tvShowsReducer
+    }
 });
 
 export type RootState = ReturnType<typeof store.getState>;
